@@ -11,6 +11,10 @@ class Aplicacion(tk.Tk):
         self.geometry("500x500")
         self.configure(bg="#e4f4f5")
 
+        # Icono
+        icono = tk.PhotoImage(file='alarm.png')
+        self.iconphoto(True, icono)
+
         # Crear pantallas
         self.pantallas = {
             "reloj": Reloj(self),
