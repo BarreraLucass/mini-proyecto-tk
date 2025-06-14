@@ -12,7 +12,7 @@ class Alarma(tk.Frame):
         self.etiqueta_hora = tk.Label(self, font=("Helvetica", 24))
         self.etiqueta_hora.pack(pady=10)
 
-        tk.Label(self, text="Ingrese hora de alarma (HH:MM:SS):", font=('Arial', 12)).pack()
+        tk.Label(self, text="Ingrese hora de alarma (HH:MM):", font=('Arial', 12)).pack()
         self.entrada_hora = tk.Entry(self)
         self.entrada_hora.pack()
 
@@ -22,7 +22,7 @@ class Alarma(tk.Frame):
         self.actualizar_hora() 
 
     def actualizar_hora(self):
-        ahora = time.strftime("%H:%M:%S")
+        ahora = time.strftime("%H:%M")
         self.etiqueta_hora.config(text=ahora)
 
         if self.alarma_hora.get() == ahora:
