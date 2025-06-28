@@ -3,6 +3,8 @@ from reloj import Reloj
 from alarma import Alarma
 from tareas import PantallaTareas
 from cronometro import PantallaCronometro
+from darkmode import aplicar_darkmode
+
 
 class Aplicacion(tk.Tk):
     def __init__(self):
@@ -14,6 +16,12 @@ class Aplicacion(tk.Tk):
         # Icono
         icono = tk.PhotoImage(file='alarm.png')
         self.iconphoto(True, icono)
+
+
+        
+        # BOTÓN MODO OSCURO/CLARO
+        self.boton_modo = tk.Button(self, text="Modo Oscuro", command=self.toggle_modo)
+        self.boton_modo.pack(side="top", pady=5)
 
         # Crear pantallas
         self.pantallas = {
@@ -34,6 +42,12 @@ class Aplicacion(tk.Tk):
         self.config(menu=barra_menu)
 
         self.mostrar_pantalla("reloj")
+
+
+        
+    def toggle_modo(self):
+        self.modo = aplicar_darkmode(self, self.modo)
+        self.boton_modo.configure(text="Modo Claro" if self.modo == "oscuro" else "Modo Oscuro")
 
     def mostrar_pantalla(self, nombre):
         """Cambia la pantalla visible."""
