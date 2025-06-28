@@ -3,12 +3,9 @@ from reloj import Reloj
 from alarma import Alarma
 from tareas import PantallaTareas
 from cronometro import PantallaCronometro
-<<<<<<< HEAD
 from bienvenida import PantallaBienvenida  
-=======
 from darkmode import aplicar_darkmode
 
->>>>>>> version-1
 
 class Aplicacion(tk.Tk):
     def __init__(self):
@@ -20,9 +17,7 @@ class Aplicacion(tk.Tk):
         
         icono = tk.PhotoImage(file='alarm.png')
         self.iconphoto(True, icono)
-
-<<<<<<< HEAD
-        
+     
         self.pantalla_bienvenida = PantallaBienvenida(self, self.iniciar_aplicacion)
         self.pantalla_bienvenida.pack(fill="both", expand=True)
 
@@ -30,8 +25,7 @@ class Aplicacion(tk.Tk):
         """Se ejecuta cuando el usuario hace clic en 'Ingresar a la aplicación'."""
         self.pantalla_bienvenida.pack_forget()
 
-       
-=======
+  
 
         
         # BOTÓN MODO OSCURO/CLARO
@@ -40,7 +34,6 @@ class Aplicacion(tk.Tk):
         self.boton_modo.pack(side="top", pady=5)
 
         # Crear pantallas
->>>>>>> version-1
         self.pantallas = {
             "reloj": Reloj(self),
             "alarma": Alarma(self),

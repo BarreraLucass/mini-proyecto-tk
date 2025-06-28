@@ -2,25 +2,22 @@ import tkinter as tk
 import time
 from tkinter import messagebox
 import winsound
-<<<<<<< HEAD
 from estilos import COLOR_ENTRADA_BG, COLOR_BOTON_BG, COLOR_BOTON_FG
-=======
 import re
 import json
 import os
->>>>>>> version-1
+
 
 class Alarma(tk.Frame):
     def __init__(self, master):
         super().__init__(master, bg="#e4f4f5")
 
-<<<<<<< HEAD
-        self.alarma_hora = tk.StringVar()
+
 
         self.etiqueta_hora = tk.Label(self, font=("Helvetica", 24), bg="#e4f4f5")
         self.etiqueta_hora.pack(pady=10)
 
-        tk.Label(self, text="Ingrese hora de alarma (HH:MM):", font=('Arial', 12), bg="#e4f4f5").pack()
+        tk.Label(self, text="Ingrese hora de alarma (HH:MM:SS):", font=('Arial', 12), bg="#e4f4f5").pack()
         self.entrada_hora = tk.Entry(self, bg=COLOR_ENTRADA_BG)
         self.entrada_hora.pack()
 
@@ -29,26 +26,19 @@ class Alarma(tk.Frame):
             text="Establecer alarma",
             bg=COLOR_BOTON_BG,
             fg=COLOR_BOTON_FG,
-            command=self.establecer_alarma
+            command=self.agregar_alarma
         )
-=======
-        self.etiqueta_hora = tk.Label(self, font=("Helvetica", 24))
-        self.etiqueta_hora.pack(pady=10)
-
+        self.boton_establecer.pack(pady=5)
+        
         self.entrada_nombre = tk.Entry(self, font=('Arial', 12))
         self.entrada_nombre.pack()
 
-        tk.Label(self, text="Ingrese hora de alarma (HH:MM):", font=('Arial', 12)).pack()
-        self.entrada_hora = tk.Entry(self)
-        self.entrada_hora.pack()
 
         tk.Label(self, text="Alarmas activas:", font=("Arial", 12)).pack(pady=(10, 0))
         self.lista_alarmas = tk.Listbox(self, height=10, width=40, font=("Arial", 11))
         self.lista_alarmas.pack(pady=5)
 
-        self.boton_establecer = tk.Button(self, text="Establecer alarma", command=self.agregar_alarma)
->>>>>>> version-1
-        self.boton_establecer.pack(pady=5)
+ 
 
         self.boton_eliminar = tk.Button(self, text="Eliminar alarma seleccionada", command=self.eliminar_alarma)
         self.boton_eliminar.pack(pady=5)
@@ -67,21 +57,7 @@ class Alarma(tk.Frame):
         ahora = time.strftime("%H:%M:%S")
         self.etiqueta_hora.config(text=ahora)
 
-<<<<<<< HEAD
-        if self.alarma_hora.get() == ahora:
-            winsound.Beep(1000, 1000)
-            messagebox.showinfo("Alarma", "¡Es hora de la alarma!")
-            self.alarma_hora.set("")  # Resetea la alarma
 
-        self.after(1000, self.actualizar_hora)
-
-    def establecer_alarma(self):
-        entrada = self.entrada_hora.get()
-        if ":" in entrada and len(entrada) == 5:
-            self.alarma_hora.set(entrada)
-        else:
-            messagebox.showwarning("Formato inválido", "Usá formato HH:MM")
-=======
         for alarma in self.alarmas:
             if alarma['hora'] == ahora:
                 try:
@@ -141,4 +117,4 @@ if __name__ == "__main__":
     app = Alarma(master=root)
     app.pack(padx=20, pady=20)
     root.mainloop()
->>>>>>> version-1
+
