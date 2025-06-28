@@ -3,6 +3,7 @@ from reloj import Reloj
 from alarma import Alarma
 from tareas import PantallaTareas
 from cronometro import PantallaCronometro
+from bienvenida import PantallaBienvenida  
 
 class Aplicacion(tk.Tk):
     def __init__(self):
@@ -11,11 +12,19 @@ class Aplicacion(tk.Tk):
         self.geometry("500x500")
         self.configure(bg="#e4f4f5")
 
-        # Icono
+        
         icono = tk.PhotoImage(file='alarm.png')
         self.iconphoto(True, icono)
 
-        # Crear pantallas
+        
+        self.pantalla_bienvenida = PantallaBienvenida(self, self.iniciar_aplicacion)
+        self.pantalla_bienvenida.pack(fill="both", expand=True)
+
+    def iniciar_aplicacion(self):
+        """Se ejecuta cuando el usuario hace clic en 'Ingresar a la aplicación'."""
+        self.pantalla_bienvenida.pack_forget()
+
+       
         self.pantallas = {
             "reloj": Reloj(self),
             "alarma": Alarma(self),
@@ -23,7 +32,6 @@ class Aplicacion(tk.Tk):
             "cronometro": PantallaCronometro(self)
         }
 
-        # Agregar menú para cambiar entre pantallas
         barra_menu = tk.Menu(self)
         menu_pantallas = tk.Menu(barra_menu, tearoff=0)
 
@@ -33,10 +41,10 @@ class Aplicacion(tk.Tk):
         barra_menu.add_cascade(label="Pantallas", menu=menu_pantallas)
         self.config(menu=barra_menu)
 
-        self.mostrar_pantalla("reloj")
+        self.mostrar_pantalla("reloj")  
 
     def mostrar_pantalla(self, nombre):
-        """Cambia la pantalla visible."""
+        """Muestra la pantalla seleccionada desde el menú."""
         for pantalla in self.pantallas.values():
             pantalla.pack_forget()
         self.pantallas[nombre].pack(fill="both", expand=True)

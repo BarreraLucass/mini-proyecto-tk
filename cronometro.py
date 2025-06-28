@@ -1,17 +1,19 @@
 import tkinter as tk
 from pantallas import PantallaBase
+from estilos import COLOR_RELOJ_BG, COLOR_BOTON_BG, COLOR_BOTON_FG
 
 class PantallaCronometro(PantallaBase):
     def __init__(self, master):
         super().__init__(master)
         self.tiempo = 0
         self.en_ejecucion = False
-        self.etiqueta_crono = tk.Label(self, text="00:00:00", font=('Arial', 36), bg="#65ffea")
+
+        self.etiqueta_crono = tk.Label(self, text="00:00:00", font=('Arial', 36), bg=COLOR_RELOJ_BG)
         self.etiqueta_crono.pack(pady=40)
 
-        tk.Button(self, text="Iniciar", command=self.iniciar).pack()
-        tk.Button(self, text="Pausar", command=self.pausar).pack()
-        tk.Button(self, text="Reiniciar", command=self.reiniciar).pack()
+        tk.Button(self, text="Iniciar", bg=COLOR_BOTON_BG, fg=COLOR_BOTON_FG, command=self.iniciar).pack()
+        tk.Button(self, text="Pausar", bg=COLOR_BOTON_BG, fg=COLOR_BOTON_FG, command=self.pausar).pack()
+        tk.Button(self, text="Reiniciar", bg=COLOR_BOTON_BG, fg=COLOR_BOTON_FG, command=self.reiniciar).pack()
 
     def actualizar_cronometro(self):
         if self.en_ejecucion:
