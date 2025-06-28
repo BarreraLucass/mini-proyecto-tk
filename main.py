@@ -20,6 +20,7 @@ class Aplicacion(tk.Tk):
 
         
         # BOTÓN MODO OSCURO/CLARO
+        self.modo = "claro"
         self.boton_modo = tk.Button(self, text="Modo Oscuro", command=self.toggle_modo)
         self.boton_modo.pack(side="top", pady=5)
 
