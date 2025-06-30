@@ -1,5 +1,5 @@
 # mini-proyecto-tk
-Un pequeño asistente de tiempo hecho en Python con Tkinter, combinando reloj, alarma y administración de tareas.
+Un pequeño asistente de tiempo hecho en Python con Tkinter, combinando reloj, alarma, cronómetro y administración de tareas.
 Grupo 3 
 
 Integrantes:
@@ -9,9 +9,8 @@ Barrera Lucas Sebastián
 Matias Geymonat
 Santiago Cabaña
 Joana Margarita Perez
-Lucas Beneventano
 
 Metodologias:
-ni idea capo xdxd
+La metodologia que utilizamos fue Feature-Driven Development (FDD)
 
 El proyecto se ejecuta desde main.py

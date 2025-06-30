@@ -22,12 +22,11 @@ class PantallaBienvenida(tk.Frame):
 
         integrantes = [
             "Manuel Lautaro Visñuk",
-            "María Alejandra Roldán Barrera",
-            "Lucas Sebastián",
+            "María Alejandra Roldán",
+            "Lucas Sebastián Barrera",
             "Matias Geymonat",
             "Santiago Cabaña",
-            "Joana Margarita Perez",
-            "Lucas Beneventano"
+            "Joana Margarita Perez"
         ]
 
         for nombre in integrantes:
